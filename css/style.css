@@ -3,18 +3,17 @@ html {
     color: black;
 }
 
-header.container{
+header.container-fluid{
     width: 100%;
     background: lightgray;
 }
 
-footer.container {
+footer.container-fluid {
     width: 75%;
 }
 
-header nav, footer nav {
-    display: flex;
-    justify-content: flex-end;
+header nav.navbar {
+    background-color: lightgray;
 }
 
 header p {
@@ -40,9 +39,9 @@ a.logo:visited, a.logo:hover, a.logo:active {
     color:inherit;
 }
 
-footer p {
+footer a, span {
     margin: 0 15px;
-    font-size: 1.3rem;
+    font-size: .8rem;
 }
 
 a.link:visited {
@@ -90,6 +89,7 @@ iframe {
 }
 
 .description {
-    font-size: 1.7rem;
+    font-size: 1.1rem;
     border: 1px solid black;
+    padding: 1.5rem;
 }
