@@ -93,3 +93,7 @@ iframe {
     border: 1px solid black;
     padding: 1.5rem;
 }
+
+.right-text {
+    float: right;
+}

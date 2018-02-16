@@ -6,6 +6,7 @@ jQuery.fn.loadRepositories = function(username) {
     this.html("<span>Querying GitHub for " + username +"'s repositories...</span>");
 
     var target = this;
+    console.log(target);
     $.githubUser(username, function(data) {
         var repos = data.data; // JSON Parsing
         sortByName(repos);
