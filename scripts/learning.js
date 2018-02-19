@@ -10,20 +10,41 @@ jQuery.fn.loadGithubRepos = function () { //create jQuery function
     //TODO: Potentially use the Bootstrap 4 cards to display the different repos
     var target = this; //sets target to the div element that called this function
     //console.log(target);
-    var list = $('<ul>'); //starts the list element that we will use to organize the repos
+    //var list = $('<ul>');
+    var list = $('<div class="row">'); //starts the row that will be used to hold the first 3 cards
     $.githubJSON(username, function (data) { //call jQuery function githubJSON and set the callback function to the following lines
         var repos = data.data; //grab the array "data" from the JSON object returned from api.github.com
         sortRepos(repos);
 
         $(target).text(""); //clears out the target element
         target.append(list); //adds the list to the target div element
+        var count = 0;
         $(repos).each(function () { //loop through each repo in JSON obj
             if (this.name != username.toLowerCase() + 'github.com') { //keeps the website repo from showing (not working lol)
                 //adds the information for each repo to the list
-                list.append('<li><a href="' + this.html_url + '">' + this.name + '</a><p style="font-weight: bold">' + this.language + '</p></li>');
+                //list.append('<li><a href="' + this.html_url + '">' + this.name + '</a><p style="font-weight: bold">' + this.language + '</p></li>');
+                // if (((count % 3) == 0) && count != 0) {
+                //     list.append('</div>'); //add closing div for prev row
+                //     list.append('<div class="row">'); //start new row
+                // }
+                list.append('<div class="col">' +
+                    '<div class="card">' +
+                    '<div class="card-header"><a href="' + this.html_url + '">' + this.name + '</a><p class="right-text">## ##</p></div>' +
+                    '<div class="card-body">' + this.description + '</div>' +
+                    '<div class="card-footer">Date Created: </div>' +
+                    '</div>' +
+                    '</div>');
+                // list.append('<div class="col">'); //OPENING COL DIV
+                // list.append('<div class="card">'); //OPENING CARD DIV
+                // list.append('<div class="card-header"><a href="' + this.html_url + '">' + this.name + '</a><p class="right-text">## ##</p></div>'); //insert number of watchers and etc in for the ## ##
+                // list.append('<div class="card-body">' + this.description + '</div>'); //description of the project in the body of card
+                // list.append('<div class="card-footer">Date Created: </div>'); //date created and last commit date
+                // list.append('</div>'); //CLOSING CARD DIV
+                // list.append('</div>'); //CLOSING COL DIV
             }
+            count++;
         });
-        list.append('</ul>') //add closing tag to list
+        list.append('</div>') //add closing div for the row
     })
 
     function sortRepos(repos) {
