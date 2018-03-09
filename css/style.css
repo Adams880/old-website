@@ -97,3 +97,50 @@ iframe {
 .right-text {
     float: right;
 }
+
+.fa-sm {
+    font-size: .9rem;
+    padding-right: 10px;
+}
+
+.github-forks {
+    font-size: .75rem;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.github-watchers {
+    padding-right: 10px;
+    padding-left: 5px;
+    border-right: 1px solid #dddddd;
+    font-size: .75rem;
+}
+
+a.github-watchers:link {
+    color: black;
+}
+
+a.github-watchers:visited {
+    color: black;
+}
+
+a.github-forks:link {
+    color: black;
+}
+
+a.github-forks:visited {
+    color: black;
+}
+
+.github-stats {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 21px;
+    height: 21px;
+}

@@ -22,16 +22,21 @@ jQuery.fn.loadGithubRepos = function () { //create jQuery function
             if (this.name != username.toLowerCase() + 'github.com') { //keeps the website repo from showing (not working lol)
 
                 //use col-md-4 to make the cards break after 3 being added. (12 cols total)
+                var forks_url = this.html_url + '/forks';
+                var watchers_url = this.html_url + '/watchers';
                 list.append('<div class="col-md-4">' +
                     '<div class="card my-3">' +
-                    '<div class="card-header"><a href="' + this.html_url + '">' + this.name + '</a><p class="right-text"><span class="glyphicon glyphicon-eye-open"></span>## ##</p></div>' +
+                    '<div class="card-header"><a href="' + this.html_url + '">' + this.name + '</a>' +
+                    '<div class="github-stats">' +
+                    '<a href="' + watchers_url + '" class="github-watchers"><i class="fa fa-eye fa-sm"></i>' + this.watchers_count + '</a>' +
+                    '<a href="' + forks_url + '" class="github-forks"><i class="fa fa-code-branch fa-sm"></i>' + this.forks_count + '</a></div></div>' +
                     '<div class="card-body">' + this.description + '</div>' +
                     '<div class="card-footer">Date Created: </div>' +
                     '</div>' +
                     '</div>');
 
                 //EXTRA TEST CODE:
-
+                
                 // list.append('<div class="col">'); //OPENING COL DIV
                 // list.append('<div class="card">'); //OPENING CARD DIV
                 // list.append('<div class="card-header"><a href="' + this.html_url + '">' + this.name + '</a><p class="right-text">## ##</p></div>'); //insert number of watchers and etc in for the ## ##
