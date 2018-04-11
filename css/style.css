@@ -13,7 +13,7 @@ footer.container-fluid {
 }
 
 header nav.navbar {
-    background-color: lightgray;
+    background-color: #2e7d32;
 }
 
 header p {
@@ -143,4 +143,26 @@ a.github-forks:visited {
     font-weight: bold;
     line-height: 21px;
     height: 21px;
+}
+
+.card-header {
+    background-color: #005005;
+}
+
+.card-header a {
+    color: #FFF;
+}
+
+.card-body {
+    background-color: #60ad5e;
+}
+
+.card-footer {
+    font-size:.7rem;
+    background-color: #2e7d32;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: inherit;
 }

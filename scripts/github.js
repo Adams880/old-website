@@ -24,19 +24,21 @@ jQuery.fn.loadGithubRepos = function () { //create jQuery function
                 //use col-md-4 to make the cards break after 3 being added. (12 cols total)
                 var forks_url = this.html_url + '/forks';
                 var watchers_url = this.html_url + '/watchers';
-                list.append('<div class="col-md-4">' +
+                var dateCreated = returnDateString(this.created_at);
+                var dateUpdated = returnDateString(this.pushed_at);
+                    list.append('<div class="col-md-4">' +
                     '<div class="card my-3">' +
                     '<div class="card-header"><a href="' + this.html_url + '">' + this.name + '</a>' +
                     '<div class="github-stats">' +
                     '<a href="' + watchers_url + '" class="github-watchers"><i class="fa fa-eye fa-sm"></i>' + this.watchers_count + '</a>' +
                     '<a href="' + forks_url + '" class="github-forks"><i class="fa fa-code-branch fa-sm"></i>' + this.forks_count + '</a></div></div>' +
                     '<div class="card-body">' + this.description + '</div>' +
-                    '<div class="card-footer">Date Created: </div>' +
+                    '<div class="card-footer"><div class="bold" style="display: inline">Date Created: </div>' + dateCreated[0] + '&emsp;<div class="bold" style="display: inline">Latest Commit: </div>' + dateUpdated[0] + '</div>' +
                     '</div>' +
                     '</div>');
 
                 //EXTRA TEST CODE:
-                
+
                 // list.append('<div class="col">'); //OPENING COL DIV
                 // list.append('<div class="card">'); //OPENING CARD DIV
                 // list.append('<div class="card-header"><a href="' + this.html_url + '">' + this.name + '</a><p class="right-text">## ##</p></div>'); //insert number of watchers and etc in for the ## ##
@@ -61,6 +63,17 @@ jQuery.fn.loadGithubRepos = function () { //create jQuery function
         repos.sort(function (a, b) {
             return a.name - b.name;
         });
+    }
+
+    function returnDateString(dateTime) {
+        //use a regex to match the date out of the string sent by GitHub
+        var re = /(\d{4})-(\d{2})-(\d{2})/;
+
+        var date = dateTime.match(re); //outputs an array
+
+        console.log(date);
+
+        return date;
     }
 }
 /*$(function () {
@@ -96,8 +109,8 @@ jQuery.githubJSON = function (username, callback) {
     $.getJSON('https://api.github.com/users/' + username + '/repos?callback=?', callback)
 }
 
-function initRepos(data) {
+/*function initRepos(data) {
     var repos = data.data;
     repos = sortRepos(repos);
     return repos;
-}
+}*/
