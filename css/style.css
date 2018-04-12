@@ -13,7 +13,7 @@ footer.container-fluid {
 }
 
 header nav.navbar {
-    background-color: #2e7d32;
+    background-color:  #546e7a;
 }
 
 header p {
@@ -146,7 +146,7 @@ a.github-forks:visited {
 }
 
 .card-header {
-    background-color: #005005;
+    background-color: #39434e;
 }
 
 .card-header a {
@@ -154,12 +154,12 @@ a.github-forks:visited {
 }
 
 .card-body {
-    background-color: #60ad5e;
+    background-color: #819ca9;
 }
 
 .card-footer {
     font-size:.7rem;
-    background-color: #2e7d32;
+    background-color: #546e7a;
     color: #FFF;
 }
 
